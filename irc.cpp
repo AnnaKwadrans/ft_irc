@@ -19,6 +19,7 @@ close()
 #include <poll.h>
 #include <unistd.h>
 #include <vector>
+#include <iostream>
 
 
 int     main(void)
@@ -92,8 +93,10 @@ int     main(void)
                      else
                      {
                         // Cliente ha enviado datos
-                        recv(pollfds[i].fd, buffer, sizeof(buffer), 0);
-                        send(pollfds[i].fd, "recibido", 9, 0);
+                        int bytes = recv(pollfds[i].fd, buffer, sizeof(buffer), 0);
+                        if (bytes > 0)
+                           std::cerr << buffer << std::endl;
+                        send(pollfds[i].fd, ":irc PRIVMSG ania :recibido\r\n", 30, 0);
                      }
                }
             }
