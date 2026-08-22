@@ -20,9 +20,16 @@ close()
 #include <unistd.h>
 #include <vector>
 #include <iostream>
+#include <sstream>
 
+int     parse_args(int argc, char **argv)
+{
+   if (argc != 3)
+      return (std::cerr << "usage: ./ircserv <port> <password>" << std::endl, 1);
+   
+}
 
-int     main(void)
+int     main(int argc, char **argv)
 {
         int     serverFd = socket(AF_INET, SOCK_STREAM, 0);
 
@@ -32,7 +39,7 @@ int     main(void)
 
         AF_INET         -> usar IPv4
         SOCK_STREAM     -> usar TCP (conexión fiable)
-        0               -> usar el protocolo por defecto (TCP)
+        0               -> usar el protocolo por defecto (TCP) / o IPPROTO_TCP explicitamente
         */
 
         sockaddr_in addr;
