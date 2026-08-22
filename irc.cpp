@@ -24,8 +24,7 @@ close()
 
 int     parse_args(int argc, char **argv)
 {
-   if (argc != 3)
-      return (std::cerr << "usage: ./ircserv <port> <password>" << std::endl, 1);
+
    
 }
 

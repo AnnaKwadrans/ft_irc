@@ -7,8 +7,8 @@ class Client
 {
     int         _clientFd;
     std::string _user;
-    std::string _user;
-    std::string _buffer; // para el parseo
+    std::string _buffer;
+
 
 
 
